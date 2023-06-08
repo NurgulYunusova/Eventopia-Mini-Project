@@ -17,7 +17,7 @@ function SearchBar() {
           <input type="text" name="place" id="place" placeholder="Place" />
         </div>
         <div>
-          <label>Start Date:</label>
+          <label>Start Date:</label> <br />
           <input
             type="date"
             value={startDate}
@@ -25,7 +25,7 @@ function SearchBar() {
           />
         </div>
         <div>
-          <label>End Date:</label>
+          <label>End Date:</label> <br />
           <input
             type="date"
             value={endDate}
