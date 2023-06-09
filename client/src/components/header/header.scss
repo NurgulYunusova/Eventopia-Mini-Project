@@ -10,12 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0;
 
     .logo {
       font-family: "Bebas Neue", sans-serif;
       letter-spacing: 2px;
-      font-size: 36px;
+      font-size: 25px;
     }
 
     nav ul {
@@ -30,5 +30,33 @@
         font-weight: 500;
       }
     }
+
+    .search-bar{
+      width: 260px;
+      background-color: #fff;
+      height: 30px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      input{
+        width: 85%;
+        outline:none;
+        border: none;
+        font-size: 10px;
+        
+      }
+      
+      .fa-search{
+        margin-left: 5px;
+        font-size: 12px;
+        color: #6b6969;
+        &:hover{
+          color: #ff9400;
+          transition: 0.4s;
+          }
+      }
+    }
+
   }
 }
