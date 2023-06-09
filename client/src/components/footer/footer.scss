@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+footer {
+  width: 100%;
+  margin: 100px 0 0;
+  background-color: #ff9400;
+  color: #fff;
+  padding: 3rem 0 1.5rem;
+
+  .container.topTextSection {
+    width: 80%;
+    margin: 0 auto 3rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Open Sans", sans-serif;
+    font-family: 500;
+
+    div {
+      flex-basis: 23%;
+
+      h4 {
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        line-height: 2;
+
+        li {
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .firstTextSection {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 2px;
+        font-size: 48px;
+      }
+
+      .bottomText {
+        h4 {
+          font-size: 18px;
+          font-weight: 400;
+          margin-bottom: 0.4rem;
+        }
+
+        .phone {
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .fourthTextSection {
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  .container.bottomTextSection {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-family: 500;
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .socialMedias {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      li {
+        font-size: 1.8rem;
+
+        a {
+          color: #fff;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+            color: #c15d00;
+          }
+        }
+      }
+    }
+  }
+}

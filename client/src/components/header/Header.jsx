@@ -1,25 +1,38 @@
-
-import { Link } from 'react-router-dom'
+import "./header.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
-    return (
-        <>
+  const navItems = [
+    "All events",
+    "Concert",
+    "Theatre",
+    "Kids",
+    "Gallery",
+    "Festival",
+  ];
+  return (
+    <>
+      <header className="header">
+        <div className="container">
+          <h1 className="logo">
+            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+              Eventopia
+            </Link>
+          </h1>
+          <nav>
             <ul>
-                <li>
-                    <Link to='/' style={{ textDecoration: 'none' }}>
-                        Home
-                    </Link>
-                </li>
-                <li>
-
-                    <Link to='/products' style={{ textDecoration: 'none' }}>
-                        Products
-                    </Link>
-                </li>
+              {navItems &&
+                navItems.map((item) => (
+                  <li>
+                    <a href="#">{item}</a>
+                  </li>
+                ))}
             </ul>
-        </>
-
-    )
+          </nav>
+        </div>
+      </header>
+    </>
+  );
 }
 
-export default Header
+export default Header;
