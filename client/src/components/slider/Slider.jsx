@@ -12,7 +12,7 @@ import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-function App() {
+function Slider() {
   const images = [Slider1, Slider2, Slider3, Slider1, Slider2, Slider3,];
 
   return (
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default Slider;
