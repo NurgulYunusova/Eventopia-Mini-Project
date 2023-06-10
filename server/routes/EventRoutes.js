@@ -4,8 +4,10 @@ const eventController = require('../controllers/EventControllers');
 
 
 EventRoutes.get('/', eventController.getAllEvents);
-EventRoutes.get('/:id', eventController.getEventById);
-EventRoutes.post('/', eventController.addEvent);
+EventRoutes.get('/:id', eventController.getEvent);
+EventRoutes.post('/', eventController.createEvent);
+EventRoutes.patch('/', eventController.updateEvent);
+EventRoutes.delete('/', eventController.deleteEvent);
 
 module.exports = {
     EventRoutes
