@@ -15,11 +15,11 @@ function Card() {
                 </div>
                 <div className="card-box-details">
                     <div className="card-box-detail-address">
-                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <i className="fa-sharp fa-solid fa-location-dot"></i>
                         <h3>Ruby Lou Kitchen</h3>
                     </div>
                     <div className="card-box-detail-date">
-                        <i class="fa-regular fa-calendar-days"></i>                    
+                        <i className="fa-regular fa-calendar-days"></i>                    
                         <h3>14 Haz Çar - 23:30</h3>
                     </div>
                 </div>
@@ -35,11 +35,11 @@ function Card() {
                 </div>
                 <div className="card-box-details">
                     <div className="card-box-detail-address">
-                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <i className="fa-sharp fa-solid fa-location-dot"></i>
                         <h3>Ruby Lou Kitchen</h3>
                     </div>
                     <div className="card-box-detail-date">
-                        <i class="fa-regular fa-calendar-days"></i>                    
+                        <i className="fa-regular fa-calendar-days"></i>                    
                         <h3>14 Haz Çar - 23:30</h3>
                     </div>
                 </div>
@@ -55,11 +55,11 @@ function Card() {
                 </div>
                 <div className="card-box-details">
                     <div className="card-box-detail-address">
-                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <i className="fa-sharp fa-solid fa-location-dot"></i>
                         <h3>Ruby Lou Kitchen</h3>
                     </div>
                     <div className="card-box-detail-date">
-                        <i class="fa-regular fa-calendar-days"></i>                    
+                        <i className="fa-regular fa-calendar-days"></i>                    
                         <h3>14 Haz Çar - 23:30</h3>
                     </div>
                 </div>
@@ -75,11 +75,11 @@ function Card() {
             </div>
             <div className="card-box-details">
                 <div className="card-box-detail-address">
-                    <i class="fa-sharp fa-solid fa-location-dot"></i>
+                    <i className="fa-sharp fa-solid fa-location-dot"></i>
                     <h3>Ruby Lou Kitchen</h3>
                 </div>
                 <div className="card-box-detail-date">
-                    <i class="fa-regular fa-calendar-days"></i>                    
+                    <i className="fa-regular fa-calendar-days"></i>                    
                     <h3>14 Haz Çar - 23:30</h3>
                 </div>
             </div>
@@ -95,11 +95,11 @@ function Card() {
             </div>
             <div className="card-box-details">
                 <div className="card-box-detail-address">
-                    <i class="fa-sharp fa-solid fa-location-dot"></i>
+                    <i className="fa-sharp fa-solid fa-location-dot"></i>
                     <h3>Ruby Lou Kitchen</h3>
                 </div>
                 <div className="card-box-detail-date">
-                    <i class="fa-regular fa-calendar-days"></i>                    
+                    <i className="fa-regular fa-calendar-days"></i>                    
                     <h3>14 Haz Çar - 23:30</h3>
                 </div>
             </div>
@@ -116,11 +116,11 @@ function Card() {
             </div>
             <div className="card-box-details">
                 <div className="card-box-detail-address">
-                    <i class="fa-sharp fa-solid fa-location-dot"></i>
+                    <i className="fa-sharp fa-solid fa-location-dot"></i>
                     <h3>Ruby Lou Kitchen</h3>
                 </div>
                 <div className="card-box-detail-date">
-                    <i class="fa-regular fa-calendar-days"></i>                    
+                    <i className="fa-regular fa-calendar-days"></i>                    
                     <h3>14 Haz Çar - 23:30</h3>
                 </div>
             </div>
