@@ -3,6 +3,8 @@
 .header {
   width: 100%;
   background-color: #ff9400;
+  position: sticky;
+  top: 0;
 
   .container {
     width: 80%;
@@ -10,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0;
 
     .logo {
       font-family: "Bebas Neue", sans-serif;
@@ -28,6 +30,35 @@
         color: #fff;
         font-family: "Open Sans", sans-serif;
         font-weight: 500;
+      }
+    }
+
+    .search-bar {
+      width: 350px;
+      background-color: #fff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 45px;
+
+      input {
+        width: 85%;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .fa-search {
+        margin-left: 5px;
+        font-size: 16px;
+        color: #6b6969;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: #ff9400;
+        }
       }
     }
   }

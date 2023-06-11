@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <footer>
-        <div className="container topTextSection">
+        <div className="footerContainer topTextSection">
           <div className="firstTextSection">
             <h1 className="logo">Eventopia</h1>
             <div className="bottomText">
@@ -66,7 +66,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="container bottomTextSection">
+        <div className="footerContainer bottomTextSection">
           <p>© 2023 eventopia.com - All rights reserved</p>
           <ul className="socialMedias">
             <li>
