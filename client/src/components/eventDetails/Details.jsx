@@ -15,8 +15,8 @@ function Details() {
   return (
     <>
       <div className="breadCrumb">
-        <i class="fa-solid fa-house"></i>
-        <i class="fa-solid fa-angle-right"></i>
+        <i className="fa-solid fa-house"></i>
+        <i className="fa-solid fa-angle-right"></i>
         <p>Ezginin Günlüğü konseri</p>
       </div>
 
@@ -29,15 +29,15 @@ function Details() {
             pagination={{
               clickable: true,
             }}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            // autoplay={{ delay: 2500, disableOnInteraction: false }}
             loop={true}
             modules={[EffectFade, Navigation, Pagination, Autoplay]}
             className="mySwiper"
           >
             {images &&
-              images.map((image) => (
-                <SwiperSlide>
-                  <img src={image} />
+              images.map((image, key) => (
+                <SwiperSlide key={key}>
+                  <img src={image} alt={`Slide ${key + 1}`} />
                 </SwiperSlide>
               ))}
             <div className="swiper-pagination"></div>
@@ -46,18 +46,18 @@ function Details() {
             <h3>What You Need to Know About the Event</h3>
             <ul>
               <li>
-                <i class="fa-solid fa-check"></i> Your e-ticket will be sent to
+                <i className="fa-solid fa-check"></i> Your e-ticket will be sent to
                 you via e-mail and sms.
               </li>
               <li>
-                <i class="fa-solid fa-check"></i> You do not need a printout.
+                <i className="fa-solid fa-check"></i> You do not need a printout.
               </li>
               <li>
-                <i class="fa-solid fa-check"></i> After the start of the game,
+                <i className="fa-solid fa-check"></i> After the start of the game,
                 no spectators will be allowed in the hall.
               </li>
               <li>
-                <i class="fa-solid fa-check"></i> Ticket control will be done at
+                <i className="fa-solid fa-check"></i> Ticket control will be done at
                 the entrance of the event, you must show your ticket over the
                 phone.
               </li>
@@ -73,13 +73,13 @@ function Details() {
             <h2>14 Haziran 2023, 23:30</h2>
           </div>
           <div className="eventPlace">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
+            <i className="fa-sharp fa-solid fa-location-dot"></i>
             <h4>Ruby Lou Kitchen</h4>
           </div>
           <div className="ticket">
             <h2>Ticket Options</h2>
             <div className="price">
-              <i class="fa-solid fa-ticket-simple"></i>
+              <i className="fa-solid fa-ticket-simple"></i>
               <h4>General Price 25$</h4>
             </div>
           </div>
