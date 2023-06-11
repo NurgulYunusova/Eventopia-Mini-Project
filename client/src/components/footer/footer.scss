@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-@import '../../abstracts//variables.scss';
+@import "../../abstracts//variables.scss";
 
 // footer {
 //   width: 100%;
@@ -15,7 +15,6 @@
 //     justify-content: space-between;
 //     font-family: "Open Sans", sans-serif;
 //     font-weight: 500;
-
 
 //     div {
 //       // flex-basis: 23%;
@@ -115,7 +114,8 @@
 //     }
 //   }
 // }
-footer{
+
+footer {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -125,35 +125,56 @@ footer{
   padding: 3rem 0 1.5rem;
   font-family: "Open Sans", sans-serif;
 
-
-  .footerContainer.topTextSection{
+  .footerContainer.topTextSection {
     width: 80%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto 30px;
 
-    .topTextSection-left,.topTextSection-right{
+    .topTextSection-left,
+    .topTextSection-right {
       width: 50%;
       display: flex;
       justify-content: space-between;
     }
-    .topTextSection-left{
+    .topTextSection-left {
       width: 50%;
-      .firstTextSection,.secondTextSection{
+      .firstTextSection,
+      .secondTextSection {
         width: 50%;
+      }
+
+      .secondTextSection {
+        h4 {
+          font-size: 24px;
+          margin-bottom: 1rem;
+        }
+        ul {
+          list-style: none;
+          line-height: 2;
+          li {
+            font-size: 18px;
+            font-weight: 400;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+            }
+          }
+        }
       }
 
       .firstTextSection {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        
+
         .logo {
           font-family: "Bebas Neue", sans-serif;
           letter-spacing: 2px;
           font-size: 48px;
         }
-  
+
         .bottomText {
           width: 100%;
           h4 {
@@ -161,18 +182,20 @@ footer{
             font-weight: 400;
             margin-bottom: 0.4rem;
           }
-        
+
           .phone {
             font-size: 24px;
             font-weight: 700;
+            text-decoration: none;
+            color: #fff;
           }
         }
       }
     }
-    .topTextSection-right{
-      width: 48%;
-      .thirdTextSection,.fourthTextSection{
-        
+    .topTextSection-right {
+      width: 45%;
+      .thirdTextSection,
+      .fourthTextSection {
         a {
           text-decoration: none;
           color: #fff;
@@ -191,10 +214,10 @@ footer{
           margin-bottom: 1rem;
         }
       }
-      .thirdTextSection{
+      .thirdTextSection {
         width: 40%;
       }
-      .fourthTextSection{
+      .fourthTextSection {
         width: 60%;
         p {
           font-size: 18px;
@@ -206,7 +229,6 @@ footer{
     }
   }
 
-  
   .footerContainer.bottomTextSection {
     width: 80%;
     margin: 0 auto;
@@ -241,238 +263,228 @@ footer{
       }
     }
   }
-  
 }
 
-@media(max-width:$large-breakpoint){
-  footer{
-    
-    .footerContainer.topTextSection{
-
-      .topTextSection-left{
-        .firstTextSection{
-          .logo{
+@media (max-width: $large-breakpoint) {
+  footer {
+    .footerContainer.topTextSection {
+      .topTextSection-left {
+        .firstTextSection {
+          .logo {
             font-size: 40px;
           }
-          .bottomText{
-            h4{
+          .bottomText {
+            h4 {
               font-size: 18px;
             }
-            .phone{
+            .phone {
               font-size: 20px;
             }
           }
         }
-  
-        .secondTextSection{
-          h4{
+
+        .secondTextSection {
+          h4 {
             font-size: 25px;
           }
-          a{
+          a {
             font-size: 17px;
           }
         }
       }
-      
-      .topTextSection-right{
-        .thirdTextSection{
-          h4{
+
+      .topTextSection-right {
+        .thirdTextSection {
+          h4 {
             font-size: 25px;
           }
-          a{
+          a {
             font-size: 17px;
           }
         }
-        .fourthTextSection{
-          h4{
+        .fourthTextSection {
+          h4 {
             font-size: 25px;
           }
-          p{
+          p {
             font-size: 17px;
             line-height: 1.5;
           }
         }
       }
-      
     }
   }
 }
 
-@media(max-width:$footer-breakpoint){
-  footer{
-    .footerContainer.topTextSection{
+@media (max-width: $footer-breakpoint) {
+  footer {
+    .footerContainer.topTextSection {
       display: flex;
       flex-direction: column;
-      .topTextSection-left,.topTextSection-right{
+      .topTextSection-left,
+      .topTextSection-right {
         width: 100%;
       }
-      .topTextSection-left{
+      .topTextSection-left {
         padding-bottom: 30px;
-        .firstTextSection,.secondTextSection{
+        .firstTextSection,
+        .secondTextSection {
           width: 40%;
         }
       }
-      .topTextSection-right{
-        .thirdTextSection,.fourthTextSection{
+      .topTextSection-right {
+        .thirdTextSection,
+        .fourthTextSection {
           width: 40%;
         }
       }
     }
 
-    .footerContainer.topTextSection{
-
-      .topTextSection-left{
-        .firstTextSection{
+    .footerContainer.topTextSection {
+      .topTextSection-left {
+        .firstTextSection {
           gap: 0;
-          .logo{
+          .logo {
             font-size: 36px;
           }
-          .bottomText{
-            h4{
+          .bottomText {
+            h4 {
               font-size: 18px;
               padding-top: 10px;
             }
-            .phone{
+            .phone {
               font-size: 18px;
             }
           }
         }
-  
-        .secondTextSection,.thirdTextSection{
-          
-          a{
+
+        .secondTextSection,
+        .thirdTextSection {
+          a {
             font-size: 17px;
           }
         }
       }
-      
-      .topTextSection-right{
-        .fourthTextSection{
-          
-          p{
+
+      .topTextSection-right {
+        .fourthTextSection {
+          p {
             font-size: 17px;
             line-height: 1.5;
           }
         }
       }
-      
     }
 
-    .footerContainer.bottomTextSection{
-      ul{
+    .footerContainer.bottomTextSection {
+      ul {
         width: 40%;
       }
     }
   }
 }
 
-@media(max-width:$laptop-breakpoint){
-  footer{
-    .footerContainer.bottomTextSection{
-      p{
+@media (max-width: $laptop-breakpoint) {
+  footer {
+    .footerContainer.bottomTextSection {
+      p {
         font-size: 14px;
       }
 
       .socialMedias {
-  
         li {
           font-size: 20px;
-
         }
       }
     }
-    
   }
 }
 
-@media(max-width:$tablet-breakpoint){
-  footer{
-    .footerContainer.topTextSection{
+@media (max-width: $tablet-breakpoint) {
+  footer {
+    .footerContainer.topTextSection {
       width: 100%;
-      .topTextSection-left{
+      .topTextSection-left {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding-bottom: 20px;
-        .firstTextSection{
+        .firstTextSection {
           text-align: center;
           padding-bottom: 20px;
         }
-        .secondTextSection{
+        .secondTextSection {
           text-align: center;
-          h4{
+          h4 {
             margin-bottom: 10px;
           }
-          
         }
       }
-      .topTextSection-right{
+      .topTextSection-right {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .thirdTextSection{
+        .thirdTextSection {
           text-align: center;
         }
-        .fourthTextSection{
+        .fourthTextSection {
           text-align: center;
-         p{
-          font-size: 16px;
-          text-align: center;
-         }
+          p {
+            font-size: 16px;
+            text-align: center;
+          }
         }
       }
-
     }
 
-    .footerContainer.bottomTextSection{
+    .footerContainer.bottomTextSection {
       display: flex;
       flex-direction: column-reverse;
-      
-      p{
+
+      p {
         font-size: 15px;
         padding-top: 15px;
       }
-      ul{
+      ul {
         width: 100%;
         display: flex;
         justify-content: center;
       }
     }
-    .footerContainer.topTextSection{
-      
-      .topTextSection-left{
-        .firstTextSection,.secondTextSection{
+    .footerContainer.topTextSection {
+      .topTextSection-left {
+        .firstTextSection,
+        .secondTextSection {
           width: 80%;
         }
       }
-      .topTextSection-right{
-        .thirdTextSection,.fourthTextSection{
+      .topTextSection-right {
+        .thirdTextSection,
+        .fourthTextSection {
           width: 70%;
         }
       }
     }
-
   }
 }
 
-@media(max-width:$small-breakpoint){
-  footer{
-
-    .footerContainer.topTextSection{
-      .topTextSection-right{
-        .fourthTextSection{
-          p{
+@media (max-width: $small-breakpoint) {
+  footer {
+    .footerContainer.topTextSection {
+      .topTextSection-right {
+        .fourthTextSection {
+          p {
             font-size: 14px;
           }
         }
       }
     }
-    .footerContainer.bottomTextSection{
-      p{
+    .footerContainer.bottomTextSection {
+      p {
         font-size: 12px;
       }
     }
