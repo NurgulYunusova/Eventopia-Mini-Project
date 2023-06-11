@@ -1,56 +1,74 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-.filter-section{
-    font-family: "Open Sans", sans-serif;
-    background-color: #EEE;
-    color: #4b4b4b;
-    border-radius: 20px;
-   
-    padding: 30px;
-    width: 80%;
-    margin: 0 auto 20px;
-    display: flex;
-    justify-content: space-between;
-    .filter-section-left{
-        width: 25%;
-    }
-    .filter-section-right{
-        width: 75%;
-        .box-section{
-            display: flex;
-            justify-content: space-between;
-            font-size: 18px;
+.filter-section {
+  font-family: "Open Sans", sans-serif;
+  color: #4b4b4b;
+  border-radius: 20px;
+  padding: 30px 0;
+  width: 80%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
-        }
-        .date-section{
-            display: flex;
-            justify-content: space-around;
-            h1{
-                font-size: 23px;
-                font-weight: 600;
-                padding: 20px 0 10px;
-               
-            }
-            input{
-                width: 180px;
-                height: 50px;
-                font-size: 18px;
-                color: #aaa;
-                cursor: pointer;
-               border-radius: 20px;
-               padding: 10px;
-               border: none;
-               outline: none;
-            }
-        }
-        .formcontrol{
-            width: 250px;
-            .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-                border-radius: 20px;
-                background: #fff;
-                border: none;
-                outline: none;
-            }
-        }
+  &-left {
+    h1 {
+      font-size: 46px;
+      color: #fe9400;
     }
-    
+  }
+
+  &-right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    .box-section {
+      display: flex;
+      gap: 20px;
+      font-size: 18px;
+    }
+
+    .date-section {
+      display: flex;
+      gap: 20px;
+
+      p {
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+
+      input {
+        width: 170px;
+        height: 55px;
+        font-size: 18px;
+        color: #727070;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #eee;
+      }
+    }
+
+    .formcontrol {
+      width: 170px;
+
+      .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+        border-radius: 20px;
+        background: #eee;
+
+        &:hover fieldset {
+          outline: 0;
+          border: 0;
+        }
+
+        & fieldset {
+          outline: 0;
+          border: 0;
+        }
+      }
+    }
+  }
 }
