@@ -28,6 +28,7 @@ function Slider() {
           depth: 100,
           modifier: 2.5,
         }}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         pagination={{ el: ".swiper-pagination", clickable: true }}
         navigation={{
           nextEl: ".swiper-button-next",
@@ -36,7 +37,6 @@ function Slider() {
         }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         className="swiper_container"
       >
         {images &&

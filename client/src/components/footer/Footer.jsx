@@ -77,27 +77,27 @@ function Footer() {
           <ul className="socialMedias">
             <li>
               <a href="https://www.facebook.com/">
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/">
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </a>
             </li>
             <li>
               <a href="https://www.tiktok.com/">
-                <i class="fa-brands fa-tiktok"></i>
+                <i className="fa-brands fa-tiktok"></i>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/">
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </a>
             </li>
             <li>
               <a href="https://linkedin.com//">
-                <i class="fa-brands fa-linkedin-in"></i>
+                <i className="fa-brands fa-linkedin-in"></i>
               </a>
             </li>
           </ul>
