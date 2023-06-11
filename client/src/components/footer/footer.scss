@@ -1,79 +1,230 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import '../../abstracts//variables.scss';
 
-footer {
+// footer {
+//   width: 100%;
+//   margin: 80px 0 0;
+//   background-color: #ff9400;
+//   color: #fff;
+//   padding: 3rem 0 1.5rem;
+
+//   .footerContainer.topTextSection {
+//     width: 80%;
+//     margin: 0 auto 30px;
+//     display: flex;
+//     justify-content: space-between;
+//     font-family: "Open Sans", sans-serif;
+//     font-weight: 500;
+
+
+//     div {
+//       // flex-basis: 23%;
+//       width: 20%;
+//       h4 {
+//         font-size: 24px;
+//         margin-bottom: 1rem;
+//       }
+
+//       a {
+//         text-decoration: none;
+//         color: #fff;
+//         font-family: "Open Sans", sans-serif;
+//       }
+
+//       ul {
+//         list-style: none;
+//         line-height: 2;
+//         li {
+//           font-size: 18px;
+//           font-weight: 400;
+//         }
+//       }
+//     }
+
+//     .firstTextSection {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1.5rem;
+
+//       .logo {
+//         font-family: "Bebas Neue", sans-serif;
+//         letter-spacing: 2px;
+//         font-size: 48px;
+//       }
+
+//       .bottomText {
+//         width: 100%;
+//         h4 {
+//           font-size: 18px;
+//           font-weight: 400;
+//           margin-bottom: 0.4rem;
+//         }
+
+//         .phone {
+//           font-size: 24px;
+//           font-weight: 700;
+//         }
+//       }
+//     }
+//     .secondTextSection{
+//       width: 25%;
+//     }
+//     .fourthTextSection {
+//       width: 25%;
+//       p {
+//         font-size: 18px;
+//         font-weight: 400;
+//         line-height: 1.7;
+//         text-align: justify;
+//       }
+//     }
+//   }
+
+//   .footerContainer.bottomTextSection {
+//     width: 80%;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     font-family: "Open Sans", sans-serif;
+//     font-family: 500;
+
+//     p {
+//       font-size: 16px;
+//       font-weight: 400;
+//     }
+
+//     .socialMedias {
+//       list-style: none;
+//       display: flex;
+//       align-items: center;
+//       gap: 30px;
+
+//       li {
+//         font-size: 1.4rem;
+
+//         a {
+//           color: #fff;
+//           transition: all 0.2s ease-in;
+
+//           &:hover {
+//             color: #c15d00;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+footer{
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 80px 0 0;
   background-color: #ff9400;
   color: #fff;
   padding: 3rem 0 1.5rem;
+  font-family: "Open Sans", sans-serif;
 
-  .footerContainer.topTextSection {
+
+  .footerContainer.topTextSection{
     width: 80%;
-    margin: 0 auto 30px;
     display: flex;
     justify-content: space-between;
-    font-family: "Open Sans", sans-serif;
-    font-family: 500;
+    margin: 0 auto 30px;
 
-    div {
-      flex-basis: 23%;
-
-      h4 {
-        font-size: 24px;
-        margin-bottom: 1rem;
-      }
-
-      a {
-        text-decoration: none;
-        color: #fff;
-        font-family: "Open Sans", sans-serif;
-      }
-
-      ul {
-        list-style: none;
-        line-height: 2;
-
-        li {
-          font-size: 18px;
-          font-weight: 400;
-        }
-      }
-    }
-
-    .firstTextSection {
+    .topTextSection-left,.topTextSection-right{
+      width: 50%;
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      justify-content: space-between;
+    }
+    .topTextSection-left{
+      width: 50%;
+      .firstTextSection,.secondTextSection{
+        width: 50%;
 
-      .logo {
-        font-family: "Bebas Neue", sans-serif;
-        letter-spacing: 2px;
-        font-size: 48px;
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-family: "Open Sans", sans-serif;
+        }
+        ul {
+          list-style: none;
+          line-height: 2;
+          li {
+            font-size: 18px;
+            font-weight: 400;
+          }
+        }
+        h4 {
+          font-size: 24px;
+          margin-bottom: 1rem;
+        }
       }
 
-      .bottomText {
-        h4 {
-          font-size: 18px;
-          font-weight: 400;
-          margin-bottom: 0.4rem;
+      .firstTextSection {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        .logo {
+          font-family: "Bebas Neue", sans-serif;
+          letter-spacing: 2px;
+          font-size: 48px;
         }
-
-        .phone {
-          font-size: 24px;
-          font-weight: 700;
+  
+        .bottomText {
+          width: 100%;
+          h4 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 0.4rem;
+          }
+        
+          .phone {
+            font-size: 24px;
+            font-weight: 700;
+          }
         }
       }
     }
-
-    .fourthTextSection {
-      p {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.7;
+    .topTextSection-right{
+      width: 48%;
+      .thirdTextSection,.fourthTextSection{
+        
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-family: "Open Sans", sans-serif;
+        }
+        ul {
+          list-style: none;
+          line-height: 2;
+          li {
+            font-size: 18px;
+            font-weight: 400;
+          }
+        }
+        h4 {
+          font-size: 24px;
+          margin-bottom: 1rem;
+        }
+      }
+      .thirdTextSection{
+        width: 40%;
+      }
+      .fourthTextSection{
+        width: 60%;
+        p {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.7;
+          text-align: justify;
+        }
       }
     }
   }
 
+  
   .footerContainer.bottomTextSection {
     width: 80%;
     margin: 0 auto;
@@ -105,6 +256,242 @@ footer {
             color: #c15d00;
           }
         }
+      }
+    }
+  }
+  
+}
+
+@media(max-width:$large-breakpoint){
+  footer{
+    
+    .footerContainer.topTextSection{
+
+      .topTextSection-left{
+        .firstTextSection{
+          .logo{
+            font-size: 40px;
+          }
+          .bottomText{
+            h4{
+              font-size: 18px;
+            }
+            .phone{
+              font-size: 20px;
+            }
+          }
+        }
+  
+        .secondTextSection{
+          h4{
+            font-size: 25px;
+          }
+          a{
+            font-size: 17px;
+          }
+        }
+      }
+      
+      .topTextSection-right{
+        .thirdTextSection{
+          h4{
+            font-size: 25px;
+          }
+          a{
+            font-size: 17px;
+          }
+        }
+        .fourthTextSection{
+          h4{
+            font-size: 25px;
+          }
+          p{
+            font-size: 17px;
+            line-height: 1.5;
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+@media(max-width:$footer-breakpoint){
+  footer{
+    .footerContainer.topTextSection{
+      display: flex;
+      flex-direction: column;
+      .topTextSection-left,.topTextSection-right{
+        width: 100%;
+      }
+      .topTextSection-left{
+        padding-bottom: 30px;
+        .firstTextSection,.secondTextSection{
+          width: 40%;
+        }
+      }
+      .topTextSection-right{
+        .thirdTextSection,.fourthTextSection{
+          width: 40%;
+        }
+      }
+    }
+
+    .footerContainer.topTextSection{
+
+      .topTextSection-left{
+        .firstTextSection{
+          gap: 0;
+          .logo{
+            font-size: 36px;
+          }
+          .bottomText{
+            h4{
+              font-size: 18px;
+              padding-top: 10px;
+            }
+            .phone{
+              font-size: 18px;
+            }
+          }
+        }
+  
+        .secondTextSection,.thirdTextSection{
+          
+          a{
+            font-size: 17px;
+          }
+        }
+      }
+      
+      .topTextSection-right{
+        .fourthTextSection{
+          
+          p{
+            font-size: 17px;
+            line-height: 1.5;
+          }
+        }
+      }
+      
+    }
+
+    .footerContainer.bottomTextSection{
+      ul{
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media(max-width:$laptop-breakpoint){
+  footer{
+    .footerContainer.bottomTextSection{
+      p{
+        font-size: 14px;
+      }
+
+      .socialMedias {
+  
+        li {
+          font-size: 20px;
+
+        }
+      }
+    }
+    
+  }
+}
+
+@media(max-width:$tablet-breakpoint){
+  footer{
+    .footerContainer.topTextSection{
+      width: 100%;
+      .topTextSection-left{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        .firstTextSection{
+          text-align: center;
+          padding-bottom: 20px;
+        }
+        .secondTextSection{
+          text-align: center;
+          h4{
+            margin-bottom: 10px;
+          }
+          
+        }
+      }
+      .topTextSection-right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .thirdTextSection{
+          text-align: center;
+        }
+        .fourthTextSection{
+          text-align: center;
+         p{
+          font-size: 16px;
+          text-align: center;
+         }
+        }
+      }
+
+    }
+
+    .footerContainer.bottomTextSection{
+      display: flex;
+      flex-direction: column-reverse;
+      
+      p{
+        font-size: 15px;
+        padding-top: 15px;
+      }
+      ul{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .footerContainer.topTextSection{
+      
+      .topTextSection-left{
+        .firstTextSection,.secondTextSection{
+          width: 80%;
+        }
+      }
+      .topTextSection-right{
+        .thirdTextSection,.fourthTextSection{
+          width: 70%;
+        }
+      }
+    }
+
+  }
+}
+
+@media(max-width:$small-breakpoint){
+  footer{
+
+    .footerContainer.topTextSection{
+      .topTextSection-right{
+        .fourthTextSection{
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .footerContainer.bottomTextSection{
+      p{
+        font-size: 12px;
       }
     }
   }
