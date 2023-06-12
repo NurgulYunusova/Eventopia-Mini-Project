@@ -8,15 +8,7 @@ const ticketController = {
                 const createdTicket = await Ticket.create(ticket);
                 tickets.push(createdTicket);
             }
-            // res.status(201).json(tickets);
-            const order = Order.create({
-                user: "6485d5ca3382f2108705b59d",
-                tickets: [tickets.map((ticket) => {
-                    return { id: ticket.id }
-                })],
-                totalAmount: tickets.reduce((a, b) => a.price + b.price)
-            })
-            res.status(201), json({ order: order, tickets: tickets })
+            res.status(201).json({ tickets: tickets });
         } catch (error) {
             console.log(error);
             res.status(500).json({ error: 'Failed to create ticket' });
