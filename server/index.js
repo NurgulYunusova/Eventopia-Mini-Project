@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use('/api/events', EventRoutes);
 app.use('/api/categories', CategoryRoutes);
-app.use('/api/locations', LocationRoutes);
+app.use('/api/location', LocationRoutes);
 app.use('/api/tickets', TicketRoutes);
 
 
