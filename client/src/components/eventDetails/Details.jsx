@@ -8,6 +8,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./details.scss";
+import { useEffect } from "react";
 
 function Details() {
   const images = [Slider1, Slider2, Slider3];
