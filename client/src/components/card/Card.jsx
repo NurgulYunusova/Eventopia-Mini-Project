@@ -15,11 +15,9 @@ function Card() {
   }, []);
 
   const goToDetails = (id) => {
-    console.log(id);
     navigate(`/eventDetails/${id}`);
   };
 
-  console.log(data);
 
   return (
     <>

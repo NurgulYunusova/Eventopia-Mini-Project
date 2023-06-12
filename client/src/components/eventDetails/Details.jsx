@@ -14,7 +14,7 @@ import EventMap from "../eventMap/EventMap";
 import { useParams } from "react-router-dom";
 
 function Details() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,8 +22,6 @@ function Details() {
       .get(`http://localhost:3001/api/events/${id}`)
       .then((res) => setData(res.data));
   }, []);
-
-  console.log(data);
 
   return (
     <>
@@ -118,7 +116,6 @@ function Details() {
                       allowFullScreen
                     ></iframe> */}
                 <EventMap mapLink={data?.location?.mapLink} />
-               { console.log(data.location?.mapLink)}
               </div>
             </div>
           </div>
