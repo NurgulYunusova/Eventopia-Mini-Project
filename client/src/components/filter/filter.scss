@@ -1,56 +1,170 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-.filter-section{
-    font-family: "Open Sans", sans-serif;
-    background-color: #EEE;
-    color: #4b4b4b;
-    border-radius: 20px;
-   
-    padding: 30px;
-    width: 80%;
-    margin: 0 auto 20px;
-    display: flex;
-    justify-content: space-between;
-    .filter-section-left{
-        width: 25%;
-    }
-    .filter-section-right{
-        width: 75%;
-        .box-section{
-            display: flex;
-            justify-content: space-between;
-            font-size: 18px;
+@import "../../abstracts//variables.scss";
 
+.filter-section {
+  font-family: "Open Sans", sans-serif;
+  color: #4b4b4b;
+  border-radius: 20px;
+  padding: 30px 0;
+  width: 80%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &-left {
+    h1 {
+      font-size: 46px;
+      color: #fe9400;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    .box-section {
+      display: flex;
+      gap: 20px;
+      font-size: 18px;
+    }
+
+    .date-section {
+      display: flex;
+      gap: 20px;
+
+      p {
+        font-weight: 600;
+        padding-bottom: 10px;
+      }
+
+      input {
+        width: 170px;
+        height: 55px;
+        font-size: 18px;
+        color: #727070;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #eee;
+      }
+    }
+
+    .formcontrol {
+      width: 170px;
+
+      .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+        border-radius: 20px;
+        background: #eee;
+
+        &:hover fieldset {
+          outline: 0;
+          border: 0;
         }
-        .date-section{
-            display: flex;
-            justify-content: space-around;
-            h1{
-                font-size: 23px;
-                font-weight: 600;
-                padding: 20px 0 10px;
-               
-            }
-            input{
-                width: 180px;
-                height: 50px;
-                font-size: 18px;
-                color: #aaa;
-                cursor: pointer;
-               border-radius: 20px;
-               padding: 10px;
-               border: none;
-               outline: none;
-            }
+
+        & fieldset {
+          outline: 0;
+          border: 0;
         }
-        .formcontrol{
-            width: 250px;
-            .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
-                border-radius: 20px;
-                background: #fff;
-                border: none;
-                outline: none;
-            }
+      }
+    }
+  }
+}
+
+@media(max-width: $filter-breakpoint){
+  .filter-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-left{
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media(max-width:$laptop-breakpoint){
+  .filter-section{
+    &-left{
+      padding-bottom: 20px;
+    }
+    &-right{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .date-section {
+        input {
+          width: 200px;
+          height: 55px;
         }
+      }
+      
+      .formcontrol {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media(max-width:$tablet-breakpoint){
+  .filter-section{
+    &-left{
+      h1{
+        font-size: 40px;
+      }
+    }
+
+    &-right{
+      .box-section{
+        display: flex;
+        flex-direction: column;
+      }
+      .date-section{
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 400px;
+          height: 55px;
+        }
+      }
+      .formcontrol {
+        width: 400px;
+      }
+      
     }
     
+  }
+}
+
+@media(max-width:$small-breakpoint){
+  .filter-section{
+    &-left{
+      h1{
+        font-size: 34px;
+      }
+    }
+   
+    &-right{
+      .box-section{
+        display: flex;
+        flex-direction: column;
+      }
+      .date-section{
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 280px;
+          height: 55px;
+        }
+      }
+      .formcontrol {
+        width: 280px;
+      }
+      
+    }
+    
+  }
 }

@@ -1,131 +1,56 @@
-import React from "react";
-import img from "../../assets/images/slider-photo-1.jpg";
+import React, { Fragment, useEffect, useState } from "react";
 import "../card/card.scss";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import moment from "moment";
+
 function Card() {
+  const [data, setData] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/events")
+      .then((res) => setData(res.data));
+  }, []);
+
+  const goToDetails = (id) => {
+    navigate(`/eventDetails/${id}`);
+  };
+
   return (
     <>
       <div className="cards">
-        <div className="card-box">
-          <div className="card-box-img">
-            <img src={img} alt="" />
-          </div>
-          <div className="card-box-detail">
-            <div className="card-box-title">
-              <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-              <div className="card-box-detail-address">
-                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <h3>Ruby Lou Kitchen</h3>
+        {data &&
+          data.map((q, key) => (
+            <Fragment key={key}>
+              <div className="card-box" onClick={() => goToDetails(q._id)}>
+                <div className="card-box-img">
+                  <img src={q.image} alt={q.title} />
+                </div>
+                <div className="card-box-detail">
+                  <div className="card-box-title">
+                    <h1>{q.title}</h1>
+                  </div>
+                  <div className="card-box-details">
+                    <div className="card-box-detail-address">
+                      <i className="fa-sharp fa-solid fa-location-dot"></i>
+                      <h3>{q.location.name}</h3>
+                    </div>
+                    <div className="card-box-detail-date">
+                      <i className="fa-regular fa-calendar-days"></i>
+                      <h3>
+                        {moment(q.startDate).format("DD MMMM YYYY")} -{" "}
+                        {q.startDate.slice(11, 16)}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="card-box-detail-date">
-                <i class="fa-regular fa-calendar-days"></i>
-                <h3>14 Haz Çar - 23:30</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card-box">
-          <div className="card-box-img">
-            <img src={img} alt="" />
-          </div>
-          <div className="card-box-detail">
-            <div className="card-box-title">
-              <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-              <div className="card-box-detail-address">
-                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <h3>Ruby Lou Kitchen</h3>
-              </div>
-              <div className="card-box-detail-date">
-                <i class="fa-regular fa-calendar-days"></i>
-                <h3>14 Haz Çar - 23:30</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card-box">
-          <div className="card-box-img">
-            <img src={img} alt="" />
-          </div>
-          <div className="card-box-detail">
-            <div className="card-box-title">
-              <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-              <div className="card-box-detail-address">
-                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <h3>Ruby Lou Kitchen</h3>
-              </div>
-              <div className="card-box-detail-date">
-                <i class="fa-regular fa-calendar-days"></i>
-                <h3>14 Haz Çar - 23:30</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card-box">
-          <div className="card-box-img">
-            <img src={img} alt="" />
-          </div>
-          <div className="card-box-detail">
-            <div className="card-box-title">
-              <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-              <div className="card-box-detail-address">
-                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <h3>Ruby Lou Kitchen</h3>
-              </div>
-              <div className="card-box-detail-date">
-                <i class="fa-regular fa-calendar-days"></i>
-                <h3>14 Haz Çar - 23:30</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card-box">
-          <div className="card-box-img">
-            <img src={img} alt="" />
-          </div>
-          <div className="card-box-detail">
-            <div className="card-box-title">
-              <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-              <div className="card-box-detail-address">
-                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                <h3>Ruby Lou Kitchen</h3>
-              </div>
-              <div className="card-box-detail-date">
-                <i class="fa-regular fa-calendar-days"></i>
-                <h3>14 Haz Çar - 23:30</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+            </Fragment>
+          ))}
       </div>
-      {/* <div className="card-box">
-        <div className="card-box-img">
-            <img src={img} alt="" />
-        </div>
-        <div className="card-box-detail">
-            <div className="card-box-title">
-                <h1>Ezginin Günlüğü konseri</h1>
-            </div>
-            <div className="card-box-details">
-                <div className="card-box-detail-address">
-                    <i className="fa-sharp fa-solid fa-location-dot"></i>
-                    <h3>Ruby Lou Kitchen</h3>
-                </div>
-                <div className="card-box-detail-date">
-                    <i className="fa-regular fa-calendar-days"></i>                    
-                    <h3>14 Haz Çar - 23:30</h3>
-                </div>
-            </div>
-        </div>
-    </div> */}
     </>
   );
 }
