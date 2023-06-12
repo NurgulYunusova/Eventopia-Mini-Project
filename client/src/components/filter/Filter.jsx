@@ -5,13 +5,29 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import "../filter/filter.scss";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 function Filter() {
   //location place startdate enddate
-  const [category, setcategory] = React.useState("");
-  const [location, setlocation] = React.useState("");
-  const [place, setplace] = React.useState("");
-  const [startDate, setstartDate] = React.useState();
-  const [endDate, setendDate] = React.useState();
+  const [category, setcategory] = useState("");
+  const [location, setlocation] = useState("");
+  const [place, setplace] = useState("");
+  const [startDate, setstartDate] = useState();
+  const [endDate, setendDate] = useState();
+
+  const [categories, setCategories] = useState([]);
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/categories")
+      .then((res) => setCategories(res.data));
+
+    axios
+      .get("http://localhost:3001/api/location")
+      .then((res) => setLocations(res.data));
+  }, []);
 
   const handleChangeCategory = (event) => {
     setcategory(event.target.value);
@@ -36,6 +52,7 @@ function Filter() {
                 <InputLabel className="inp" id="demo-simple-select-label">
                   Category
                 </InputLabel>
+
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -43,10 +60,12 @@ function Filter() {
                   label="Category"
                   onChange={handleChangeCategory}
                 >
-                  <MenuItem value={10}>Concert</MenuItem>
-                  <MenuItem value={20}>Sport</MenuItem>
-                  <MenuItem value={30}>Music</MenuItem>
-                  <MenuItem value={40}>Theatre</MenuItem>
+                  {categories &&
+                    categories.map((q, key) => (
+                      <MenuItem value={q.name} key={key}>
+                        {q.name}
+                      </MenuItem>
+                    ))}
                 </Select>
               </FormControl>
             </Box>
@@ -62,9 +81,12 @@ function Filter() {
                   label="Location"
                   onChange={handleChangeLocation}
                 >
-                  <MenuItem value={10}>Sport</MenuItem>
-                  <MenuItem value={20}>Music</MenuItem>
-                  <MenuItem value={30}>Theatre</MenuItem>
+                  {locations &&
+                    locations.map((q, key) => (
+                      <MenuItem value={q.name} key={key}>
+                        {q.name}
+                      </MenuItem>
+                    ))}
                 </Select>
               </FormControl>
             </Box>
@@ -80,9 +102,12 @@ function Filter() {
                   label="Place"
                   onChange={handleChangePlace}
                 >
-                  <MenuItem value={10}>Sport</MenuItem>
-                  <MenuItem value={20}>Music</MenuItem>
-                  <MenuItem value={30}>Theatre</MenuItem>
+                  {locations &&
+                    locations.map((q, key) => (
+                      <MenuItem value={q.name} key={key}>
+                        {q.name}
+                      </MenuItem>
+                    ))}
                 </Select>
               </FormControl>
             </Box>
