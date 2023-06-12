@@ -6,7 +6,7 @@ const locationSchema = new mongoose.Schema({
   city: { type: String, required: true },
   state: { type: String, required: true },
   country: { type: String, required: true },
-  mapLink: { type: String }
+  mapLink: [{ type: String }]
 });
 
 const Location = mongoose.model('Location', locationSchema);
