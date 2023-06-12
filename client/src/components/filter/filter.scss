@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import "../../abstracts//variables.scss";
+
 .filter-section {
   font-family: "Open Sans", sans-serif;
   color: #4b4b4b;
@@ -70,5 +72,99 @@
         }
       }
     }
+  }
+}
+
+@media(max-width: $filter-breakpoint){
+  .filter-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-left{
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media(max-width:$laptop-breakpoint){
+  .filter-section{
+    &-left{
+      padding-bottom: 20px;
+    }
+    &-right{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .date-section {
+        input {
+          width: 200px;
+          height: 55px;
+        }
+      }
+      
+      .formcontrol {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media(max-width:$tablet-breakpoint){
+  .filter-section{
+    &-left{
+      h1{
+        font-size: 40px;
+      }
+    }
+
+    &-right{
+      .box-section{
+        display: flex;
+        flex-direction: column;
+      }
+      .date-section{
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 400px;
+          height: 55px;
+        }
+      }
+      .formcontrol {
+        width: 400px;
+      }
+      
+    }
+    
+  }
+}
+
+@media(max-width:$small-breakpoint){
+  .filter-section{
+    &-left{
+      h1{
+        font-size: 34px;
+      }
+    }
+   
+    &-right{
+      .box-section{
+        display: flex;
+        flex-direction: column;
+      }
+      .date-section{
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 280px;
+          height: 55px;
+        }
+      }
+      .formcontrol {
+        width: 280px;
+      }
+      
+    }
+    
   }
 }
