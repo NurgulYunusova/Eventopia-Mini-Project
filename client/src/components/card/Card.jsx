@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 // import { setData } from "../slicers/dataSlice";
 import moment from "moment";
+import RatingStarComponent from "../ratingComponent/RatingStarComponent";
 
 function Card() {
   // const data = useSelector((state) => state.data);
@@ -35,7 +36,7 @@ function Card() {
   const goToDetails = (id) => {
     navigate(`/eventDetails/${id}`);
   };
-
+  console.log(data);
   return (
     <>
       <div className="cards">
@@ -61,6 +62,9 @@ function Card() {
                         {moment(q.startDate).format("DD MMMM YYYY")} -{" "}
                         {q.startDate.slice(11, 16)}
                       </h3>
+                    </div>
+                    <div>
+                      <RatingStarComponent rating={q.rating} />
                     </div>
                   </div>
                 </div>
