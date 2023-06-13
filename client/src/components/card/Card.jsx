@@ -1,18 +1,21 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import "../card/card.scss";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../slicers/dataSlice";
 
 function Card() {
-  const [data, setData] = useState([]);
-
+  const data = useSelector((state) => state.data);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/events")
-      .then((res) => setData(res.data));
-  }, []);
+    axios.get("http://localhost:3001/api/events").then((res) => {
+      dispatch(setData(res.data));
+    });
+  }, [dispatch]);
+
 
   const goToDetails = (id) => {
     navigate(`/eventDetails/${id}`);

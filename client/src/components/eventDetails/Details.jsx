@@ -8,20 +8,23 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./details.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import EventMap from "../eventMap/EventMap";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../slicers/dataSlice";
 
 function Details() {
-  const [data, setData] = useState({});
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.data);
   const { id } = useParams();
 
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/events/${id}`)
-      .then((res) => setData(res.data));
-  }, []);
+      .then((res) => dispatch(setData(res.data)));
+  }, [dispatch, id]);
 
   return (
     <>
@@ -49,7 +52,7 @@ function Details() {
               <SwiperSlide>
                 <img src={data.image} alt={data.title} />
               </SwiperSlide>
-       {       data.cover?.map((item) => (
+              {data.cover?.map((item) => (
                 <SwiperSlide key={item}>
                   <img src={item} />
                 </SwiperSlide>
