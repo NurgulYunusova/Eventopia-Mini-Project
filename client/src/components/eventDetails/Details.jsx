@@ -8,33 +8,43 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./details.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import EventMap from "../eventMap/EventMap";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setData } from "../slicers/dataSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setData } from "../slicers/dataSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 
 function Details() {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state.data);
-  const { id } = useParams();
+  // const dispatch = useDispatch();
+  // const data = useSelector((state) => state.data);
+  // const { id } = useParams();
 
-  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:3001/api/events/${id}`)
+  //     .then((res) => dispatch(setData(res.data)));
+  // }, [dispatch, id]);
+
+  const [data, setData] = useState({});
+  const { id } = useParams();
 
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/events/${id}`)
-      .then((res) => dispatch(setData(res.data)));
-  }, [dispatch, id]);
+      .then((res) => setData(res.data));
+  }, []);
+
+  const navigate = useNavigate();
+
 
   return (
     <>
       <div>
         <div className="breadCrumb">
-          <i className="fa-solid fa-house" onClick={(e)=>navigate("/")}></i>
+          <i className="fa-solid fa-house" onClick={(e) => navigate("/")}></i>
           {/*  navigate("/session-timed-out"); */}
           <i className="fa-solid fa-angle-right"></i>
           <p>{data.title}</p>
@@ -43,31 +53,31 @@ function Details() {
         <div className="detailsContainer">
           <div className="detailsSliderContainer">
             <div className="swiper-div">
-            <Swiper
-              spaceBetween={30}
-              effect={"fade"}
-              navigation={false}
-              pagination={{
-                clickable: true,
-              }}
-              autoplay={{ delay: 2500, disableOnInteraction: false }}
-              loop={true}
-              modules={[EffectFade, Navigation, Pagination, Autoplay]}
-              className="mySwiper"
-            >
-              <SwiperSlide>
-                <img src={data.image} alt={data.title} />
-              </SwiperSlide>
-              {data.cover?.map((item) => (
-                <SwiperSlide key={item}>
-                  <img src={item} />
+              <Swiper
+                spaceBetween={30}
+                effect={"fade"}
+                navigation={false}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay={{ delay: 2500, disableOnInteraction: false }}
+                loop={true}
+                modules={[EffectFade, Navigation, Pagination, Autoplay]}
+                className="mySwiper"
+              >
+                <SwiperSlide>
+                  <img src={data.image} alt={data.title} />
                 </SwiperSlide>
-              ))}
-              <div className="swiper-pagination"></div>
-            </Swiper>
+                {data.cover?.map((item) => (
+                  <SwiperSlide key={item}>
+                    <img src={item} />
+                  </SwiperSlide>
+                ))}
+                <div className="swiper-pagination"></div>
+              </Swiper>
             </div>
-           
-            
+
+
             <div className="needToKnow">
               <h3>What You Need to Know About the Event</h3>
               <ul>
@@ -98,7 +108,7 @@ function Details() {
             </div>
             <div className="eventTime">
               <h2>
-              {moment(data.startDate).format("DD MMMM YYYY")} -{" "}
+                {moment(data.startDate).format("DD MMMM YYYY")} -{" "}
                 {data.startDate?.slice(11, 16)} <br />
                 {moment(data.endDate).format("DD MMMM YYYY")} -{" "}
                 {data.endDate?.slice(11, 16)}

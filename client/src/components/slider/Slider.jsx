@@ -1,7 +1,7 @@
 import Slider1 from "../../assets/images/slider-photo-1.jpg";
 import Slider2 from "../../assets/images/slider-photo-2.jpg";
 import Slider3 from "../../assets/images/slider-photo-3.jpg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -11,9 +11,17 @@ import "./slider.scss";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import axios from "axios";
 
 function Slider() {
-  const images = [Slider1, Slider2, Slider3, Slider1, Slider2, Slider3];
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/events")
+      .then((res) => setData(res.data));
+  }, []);
 
   return (
     <div className="container">
@@ -39,12 +47,15 @@ function Slider() {
         loop={true}
         className="swiper_container"
       >
-        {images &&
-          images.map((image, key) => (
-            <SwiperSlide key={key}>
-              <img src={image} alt={`Slide ${key + 1}`} />
-            </SwiperSlide>
-          ))}
+        {data &&
+          data
+            .filter(item => item.rating > 4)
+            .map((item, key) => (
+              <SwiperSlide key={key}>
+                <img src={item.image} alt={`Slide ${key + 1}`} />
+              </SwiperSlide>
+            ))}
+
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">
             <ArrowBackIcon
