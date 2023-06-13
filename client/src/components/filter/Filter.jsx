@@ -73,7 +73,7 @@ function Filter() {
                 >
                   {categories &&
                     categories.map((q, key) => (
-                      <MenuItem value={q.name} key={key}>
+                      <MenuItem value={q._id} key={key}>
                         {q.name}
                       </MenuItem>
                     ))}
@@ -94,8 +94,8 @@ function Filter() {
                 >
                   {locations &&
                     locations.map((q, key) => (
-                      <MenuItem value={q.name} key={key}>
-                        {q.name}
+                      <MenuItem value={q._id} key={key}>
+                        {q.address}
                       </MenuItem>
                     ))}
                 </Select>
@@ -115,7 +115,7 @@ function Filter() {
                 >
                   {locations &&
                     locations.map((q, key) => (
-                      <MenuItem value={q.name} key={key}>
+                      <MenuItem value={q._id} key={key}>
                         {q.name}
                       </MenuItem>
                     ))}
