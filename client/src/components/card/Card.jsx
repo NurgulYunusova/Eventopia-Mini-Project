@@ -2,46 +2,76 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../card/card.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setData } from "../slicers/dataSlice";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import RatingStarComponent from "../ratingComponent/RatingStarComponent";
 
 function Card() {
-  // const data = useSelector((state) => state.data);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:3001/api/events").then((res) => {
-  //     dispatch(setData(res.data));
-  //   });
-  // }, [dispatch]);
-
-
-  // const goToDetails = (id) => {
-  //   navigate(`/eventDetails/${id}`);
-  // };
-
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   const navigate = useNavigate();
+  const { category, location, place, startDate, endDate } = useSelector(
+    (state) => state.filter
+  );
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/events")
-      .then((res) => setData(res.data));
+    axios.get("http://localhost:3001/api/events").then((res) => {
+      setData(res.data);
+    });
   }, []);
+
+  function filterEvents(events, category, location, startDate, endDate) {
+    return events.filter(event => {
+      const eventCategory = event.categories[0]._id;
+      const eventLocation = event.location._id;
+      const eventStartDate = new Date(event.startDate);
+      const eventEndDate = new Date(event.endDate);
+  
+      const isCategoryMatch = category ? eventCategory === category : true;
+      const isLocationMatch = location ? eventLocation === location : true;
+      const isStartDateMatch = startDate ? eventStartDate >= new Date(startDate) : true;
+      const isEndDateMatch = endDate ? eventEndDate <= new Date(endDate) : true;
+  
+      return isCategoryMatch && isLocationMatch && isStartDateMatch && isEndDateMatch;
+    });
+  }
+  useEffect(() => {
+    // const filtered = data.filter((item) => {
+    //   // Filter based on category, location, place, startDate, and endDate
+    //   const categoryMatch = !category || item.category === category;
+    //   const locationMatch = !location || item.location.name === location;
+    //   const placeMatch = !place || item.place === place;
+    //   const startDateMatch =
+    //     !startDate || moment(item.startDate).isSameOrAfter(startDate);
+    //   const endDateMatch =
+    //     !endDate || moment(item.startDate).isSameOrBefore(endDate);
+
+    //   return (
+    //     categoryMatch &&
+    //     locationMatch &&
+    //     placeMatch &&
+    //     startDateMatch &&
+    //     endDateMatch
+    //   );
+    // });
+  
+    // setFilteredData(filtered);
+    let a = filterEvents(data, category, location, place, startDate, endDate)
+    setFilteredData(a);
+    
+  }, [data, category, location, place, startDate, endDate]);
+
 
   const goToDetails = (id) => {
     navigate(`/eventDetails/${id}`);
   };
-  console.log(data);
+
   return (
     <>
       <div className="cards">
-        {data &&
-          data.map((q, key) => (
+        {filteredData &&
+          filteredData.map((q, key) => (
             <Fragment key={key}>
               <div className="card-box" onClick={() => goToDetails(q._id)}>
                 <div className="card-box-img">
