@@ -1,0 +1,93 @@
+.ratingBox {
+    width: 131px;
+    height: 20px;
+    background: #D7D7D7;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon1 {
+    width: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.2px solid #BEBEBE;
+    border-radius: 2px 0px 0px 2px;
+    cursor: pointer;
+
+    svg {
+        opacity: 0.9;
+    }
+
+
+}
+
+.icon2 {
+    width: 23px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.2px solid #BEBEBE;
+    cursor: pointer;
+
+    svg {
+        opacity: 0.9;
+    }
+
+}
+
+.icon3 {
+    width: 26px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.2px solid #BEBEBE;
+    cursor: pointer;
+
+    svg {
+        opacity: 0.9;
+    }
+
+}
+
+.icon4 {
+    width: 31px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.2px solid #BEBEBE;
+    cursor: pointer;
+
+    svg {
+        opacity: 0.9;
+    }
+}
+
+.icon5 {
+    width: 31px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 0px 2px 2px 0px;
+
+    svg {
+        opacity: 0.9;
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .ratingBox {
+        margin-bottom: 5px;
+    }
+}
