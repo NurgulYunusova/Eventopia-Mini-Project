@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-
+@import '../../abstracts/variables.scss';
 .cards {
   width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 30px;
 
@@ -13,7 +14,7 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px;
     height: 400px;
-    width: 30%;
+    width: 350px;
     border-radius: 30px;
     font-family: "Open Sans", sans-serif;
     cursor: pointer;
@@ -39,14 +40,16 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-
+      box-sizing: border-box;
       .card-box-title {
         color: #4b4b4b;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
 
         h1 {
-          font-size: 25px;
-          font-weight: 500;
+          font-size: 21px;
+          font-weight: 700;
+          // font-weight: 500;
+          line-height: 1.1;
         }
       }
 
@@ -60,7 +63,7 @@
 
           h3 {
             font-weight: 500;
-            font-size: 17px;
+            font-size: 16px;
           }
         }
 
@@ -74,6 +77,157 @@
           color: #4b4b4b;
           margin-right: 8px;
           font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:$filter-breakpoint){
+  .cards{
+    
+    .card-box{
+      &-title{
+        h1 {
+          font-size: 19px;
+        }
+      }
+      &-detail {
+        padding: 17px;
+      }
+    }
+  }
+}
+
+@media(max-width: $card-breakpoint){
+  .cards{
+    // width: 70%;
+    display: flex;
+    justify-content: center; 
+    gap: 50px;
+    .card-box{
+      width: 400px;
+      height: 400px;
+      &-detail{
+        padding: 23px;
+      }
+    }
+  }
+
+}
+
+@media(max-width:$large-breakpoint){
+  .cards{
+    // width: 65%;
+    
+    .card-box{
+      width: 375px;
+      height: 375px;
+      &-detail{
+        padding: 23px;
+      }
+    }
+  }
+
+}
+
+@media(max-width:$footer-breakpoint){
+  .cards{
+    // width: 70%;    
+    .card-box{
+      width: 350px;
+      height: 350px;
+      &-detail{
+        padding: 23px;
+      }
+    }
+  }
+}
+
+@media(max-width:$laptop-breakpoint){
+  .cards{
+    // width: 70%;  
+    display: flex;
+    justify-content: center;  
+    .card-box{
+      width: 500px;
+      height: 450px;
+      &-detail{
+        padding: 23px;
+      }
+    }
+  }
+}
+
+@media(max-width:$tablet-breakpoint){
+  .cards{
+    // width: 70%;  
+    
+    .card-box{
+      width: 420px;
+      height: 420px;
+      &-detail{
+        padding: 23px;
+      }
+    }
+  }
+}
+
+@media(max-width:$small-breakpoint){
+  .cards{
+    // width: 70%;  
+    
+    .card-box{
+      width: 380px;
+      height: 380px;
+      &-detail{
+        padding: 19px;
+      }
+    }
+  }
+}
+
+@media(max-width:$extra-small-breakpoint){
+  .cards{
+    // width: 70%;  
+    
+    .card-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &-img {
+        height: 50%;
+      }
+      width: 300px;
+      height: 300px;
+      &-detail{
+        padding: 19px;
+        .card-box-title{
+          h1{
+            font-size: 16px;
+          }
+        }
+
+        .card-box-details {
+          .card-box-detail-address,
+          .card-box-detail-date {
+           
+            padding: 2px 0;
+  
+            h3 {
+              font-size: 16px;
+            }
+          }
+  
+          .fa-location-dot {
+            margin-right: 8px;
+            font-size: 15px;
+          }
+  
+          .fa-calendar-days {
+            margin-right: 8px;
+            font-size: 15px;
+          }
         }
       }
     }

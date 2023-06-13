@@ -14,11 +14,15 @@ import EventMap from "../eventMap/EventMap";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../slicers/dataSlice";
+import { useNavigate, useParams } from "react-router-dom";
+import moment from "moment";
 
 function Details() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -30,13 +34,15 @@ function Details() {
     <>
       <div>
         <div className="breadCrumb">
-          <i className="fa-solid fa-house"></i>
+          <i className="fa-solid fa-house" onClick={(e)=>navigate("/")}></i>
+          {/*  navigate("/session-timed-out"); */}
           <i className="fa-solid fa-angle-right"></i>
           <p>{data.title}</p>
         </div>
 
         <div className="detailsContainer">
           <div className="detailsSliderContainer">
+            <div className="swiper-div">
             <Swiper
               spaceBetween={30}
               effect={"fade"}
@@ -59,6 +65,9 @@ function Details() {
               ))}
               <div className="swiper-pagination"></div>
             </Swiper>
+            </div>
+           
+            
             <div className="needToKnow">
               <h3>What You Need to Know About the Event</h3>
               <ul>
@@ -88,7 +97,12 @@ function Details() {
               <h1>{data.title}</h1>
             </div>
             <div className="eventTime">
-              <h2>14 Haziran 2023, 23:30</h2>
+              <h2>
+              {moment(data.startDate).format("DD MMMM YYYY")} -{" "}
+                {data.startDate?.slice(11, 16)} <br />
+                {moment(data.endDate).format("DD MMMM YYYY")} -{" "}
+                {data.endDate?.slice(11, 16)}
+              </h2>
             </div>
             <div className="eventPlace">
               <i className="fa-sharp fa-solid fa-location-dot"></i>
