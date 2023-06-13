@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-
+@import '../../abstracts/variables.scss';
 .breadCrumb {
   width: 89%;
   margin: 40px auto 20px;
@@ -36,35 +36,43 @@
     height: 400px;
     display: inline-block;
     position: relative;
+    
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+  
+      .swiper-slide {
+        height: 30rem;
+        background-position: center;
+        background-size: cover;
+      }
+  
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+      // .mySwipper{
 
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-    }
-
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-    }
-
-    .swiper-pagination {
-      position: relative;
-      width: 15rem !important;
-      bottom: 0.4rem !important;
-    }
-
-    .swiper-pagination .swiper-pagination-bullet {
-      filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
-    }
-
-    .swiper-pagination .swiper-pagination-bullet-active {
-      background: var(--primary);
-    }
+      
+        .swiper-pagination {
+          // position: relative;
+          // width: 15rem !important;
+          // bottom: 0.4rem !important;
+          display: none;
+        }
+    
+      //   .swiper-pagination .swiper-pagination-bullet {
+      //     filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+      //   }
+    
+      //   .swiper-pagination .swiper-pagination-bullet-active {
+      //     background: var(--primary);
+      //   }
+      // }
+      
+    
+   
 
     // .buyTicket {
     //   border: 0;
@@ -104,6 +112,10 @@
 
     .eventTime {
       margin: 10px 0 15px;
+      h2{
+        font-size: 19px;
+        padding-bottom: 10px;
+      }
     }
 
     .eventPlace {
@@ -123,7 +135,7 @@
 
     .ticket {
       h2 {
-        margin: 35px 0 10px 0;
+        margin: 25px 0 10px 0;
       }
 
       .price {
@@ -140,17 +152,18 @@
 
     .description {
       h2 {
-        margin: 45px 0 10px 0;
+        margin: 25px 0 10px 0;
       }
 
       p {
         color: #555f66;
+        text-align: justify;
       }
     }
 
     .location {
       h2 {
-        margin: 45px 0 10px 0;
+        margin: 25px 0 10px 0;
       }
 
       .place {
@@ -162,6 +175,189 @@
         color: #555f66;
         font-weight: 600;
         margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media(max-width: $large-breakpoint){
+  .detailsContainer {
+    gap: 40px;
+    .detailsSliderContainer {
+   
+      width: 550px;
+
+      .needToKnow{
+        ul{
+          li{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .details {
+      .eventName{
+        h1{
+          font-size: 28px;
+        }
+       
+      }
+      .eventTime {
+        h2{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:$footer-breakpoint){
+  .detailsContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    .detailsSliderContainer {
+      width: 85%;
+      height: 100%;
+      .swiper-slide img {
+        width: 100%;
+      }
+    }
+
+    .details{
+      width: 85%;
+      .eventName{
+        h1{
+          font-size: 32px;
+        }
+      }
+    }
+    
+       
+  }
+  
+}
+
+@media(max-width:$laptop-breakpoint){
+  .detailsContainer{
+   
+    .detailsSliderContainer {
+    
+      .swiper-slide img {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+      
+  }
+  
+}
+@media(max-width:$tablet-breakpoint){
+  .detailsContainer{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .detailsSliderContainer {
+        width: 100%;
+        
+      
+      .swiper-slide img {
+        width: 400px;
+        height: 400px;
+        margin-top: 40px;
+      }
+
+      .needToKnow{
+        h3{
+          margin-top: 0;
+        }
+      }
+    }
+    .details{
+      width: 100%;
+      .eventName{
+        h1{
+          font-size: 28px;
+        }
+      }
+    }
+
+
+    
+      
+  }
+}
+@media(max-width:$small-breakpoint){
+  .detailsContainer{
+  
+    .detailsSliderContainer {
+      .swiper-slide img {
+        width: 350px !important;
+        height: 450px !important;
+        margin:50px 35px 0;
+      }      
+    }
+    
+    .details{
+      .eventName{
+        h1{
+          font-size: 25px;
+        }
+      }
+      .ticket{
+        h2{
+          font-size: 25px;
+        }
+      }
+      .description{
+        p{
+          font-size: 15px;
+        }
+      }
+    }
+
+    
+      
+  }
+}
+
+@media(max-width:$extra-small-breakpoint){
+  .swiper-div{
+    display: none;
+  }
+  .detailsContainer{
+
+    .detailsSliderContainer{
+      .needToKnow{
+        ul{
+          li{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .details{
+      .eventName{
+        h1{
+          font-size: 22px;
+        }
+      }
+      .ticket{
+        h2{
+          font-size: 22px;
+        }
+      }
+      .description{
+        h2{
+          font-size: 22px;
+        }
+        p{
+          font-size: 14px;
+        }
       }
     }
   }
