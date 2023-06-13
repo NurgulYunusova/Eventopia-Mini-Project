@@ -5,40 +5,52 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import "../filter/filter.scss";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setCategory,
+  setLocation,
+  setPlace,
+  setStartDate,
+  setEndDate,
+} from "../slicers/filterSlice";
+
 function Filter() {
-  //location place startdate enddate
-  const [category, setcategory] = useState("");
-  const [location, setlocation] = useState("");
-  const [place, setplace] = useState("");
-  const [startDate, setstartDate] = useState();
-  const [endDate, setendDate] = useState();
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.data);
+
+  // location place startdate enddate
+  const { category, location, place, startDate, endDate } = useSelector(
+    (state) => state.filter
+  );
 
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
+  
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/api/categories")
-      .then((res) => setCategories(res.data));
+    axios.get("http://localhost:3001/api/categories").then((res) => {
+      setCategories(res.data);
+    });
 
-    axios
-      .get("http://localhost:3001/api/location")
-      .then((res) => setLocations(res.data));
+    axios.get("http://localhost:3001/api/location").then((res) => {
+      setLocations(res.data);
+    });
   }, []);
 
   const handleChangeCategory = (event) => {
-    setcategory(event.target.value);
+    dispatch(setCategory(event.target.value));
   };
 
   const handleChangeLocation = (event) => {
-    setlocation(event.target.value);
+    dispatch(setLocation(event.target.value));
   };
+
   const handleChangePlace = (event) => {
-    setplace(event.target.value);
+    dispatch(setPlace(event.target.value));
   };
+
   return (
     <>
       <div className="filter-section">
@@ -52,7 +64,6 @@ function Filter() {
                 <InputLabel className="inp" id="demo-simple-select-label">
                   Category
                 </InputLabel>
-
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -118,12 +129,17 @@ function Filter() {
               <p>Start Date</p>
               <input
                 type="date"
-                onChange={(e) => setstartDate(e.target.value)}
+                value={startDate}
+                onChange={(e) => dispatch(setStartDate(e.target.value))}
               />
             </div>
             <div className="end-date-section">
               <p>End Date</p>
-              <input type="date" onChange={(e) => setendDate(e.target.value)} />
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => dispatch(setEndDate(e.target.value))}
+              />
             </div>
           </div>
         </div>
