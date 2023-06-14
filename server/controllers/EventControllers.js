@@ -1,8 +1,6 @@
 const Event = require('../models/Event');
 const { logger } = require("../config/logger");
 
-
-
 const eventController = {
   createEvent: async (req, res) => {
     try {
