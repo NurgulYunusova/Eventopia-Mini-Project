@@ -14,7 +14,7 @@ This repository contains the source code and documentation for an event ticketin
 ## Technologies Used
 The website is built using the following technologies:
 
-* Frontend: React, SASS
+* Frontend: React, Redux Toolkit, Material UI and SASS
 * Backend: Node.js, Express.js
 * Database: MongoDB
 
@@ -43,7 +43,7 @@ npm install
 
 ```sh
 cd server
-node index.js
+npm start
 
 cd client
 npm run dev
