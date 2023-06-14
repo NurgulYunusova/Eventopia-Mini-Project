@@ -1,0 +1,2 @@
+{"error":{"kind":"ObjectId","message":"Cast to ObjectId failed for value \"64872495f182ad4f77116665iiu\" (type string) at path \"_id\" for model \"Event\"","name":"CastError","path":"_id","reason":{},"stringValue":"\"64872495f182ad4f77116665iiu\"","value":"64872495f182ad4f77116665iiu","valueType":"string"},"level":"error","message":"Failed to get event","service":"user-service"}
+{"level":"info","message":"Event retrieved successfully","service":"user-service"}
