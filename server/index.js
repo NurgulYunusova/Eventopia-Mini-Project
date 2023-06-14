@@ -3,6 +3,8 @@ const { db } = require('./config/db');
 const fileUpload = require("express-fileupload");
 const path = require('path');
 const cors = require("cors");
+const winston = require('winston');
+
 const { EventRoutes } = require('./routes/EventRoutes');
 const { CategoryRoutes } = require('./routes/CategoryRoutes');
 const { LocationRoutes } = require('./routes/LocationRoutes');
