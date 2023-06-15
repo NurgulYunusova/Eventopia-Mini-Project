@@ -11,7 +11,7 @@ function Card() {
   const [filteredData, setFilteredData] = useState([]);
 
   const navigate = useNavigate();
-  const { category, location, place, startDate, endDate } = useSelector(
+  const { category, location, startDate, endDate } = useSelector(
     (state) => state.filter
   );
 
@@ -21,47 +21,35 @@ function Card() {
     });
   }, []);
 
-  function filterEvents(events, category, location, startDate, endDate) {
-    return events.filter(event => {
+  
+  function filterEvents(events, category, locationAddress, locationName, startDate, endDate) {
+    return events.filter((event) => {
       const eventCategory = event.categories[0]._id;
-      const eventLocation = event.location._id;
+      const eventLocationAddress = event.location.address;
+      const eventLocationName = event.location.name;
       const eventStartDate = new Date(event.startDate);
       const eventEndDate = new Date(event.endDate);
-  
-      const isCategoryMatch = category ? eventCategory === category : true;
-      const isLocationMatch = location ? eventLocation === location : true;
-      const isStartDateMatch = startDate ? eventStartDate >= new Date(startDate) : true;
-      const isEndDateMatch = endDate ? eventEndDate <= new Date(endDate) : true;
-  
-      return isCategoryMatch && isLocationMatch && isStartDateMatch && isEndDateMatch;
+
+      const isCategoryMatch = !category || eventCategory === category;
+      const isLocationAddressMatch = !locationAddress || eventLocationAddress === locationAddress;
+      const isLocationNameMatch = !locationName || eventLocationName === locationName;
+      const isStartDateMatch = !startDate || eventStartDate >= new Date(startDate);
+      const isEndDateMatch = !endDate || eventEndDate <= new Date(endDate);
+
+      return (
+        isCategoryMatch &&
+        isLocationAddressMatch &&
+        isLocationNameMatch &&
+        isStartDateMatch &&
+        isEndDateMatch
+      );
     });
   }
+
   useEffect(() => {
-    // const filtered = data.filter((item) => {
-    //   // Filter based on category, location, place, startDate, and endDate
-    //   const categoryMatch = !category || item.category === category;
-    //   const locationMatch = !location || item.location.name === location;
-    //   const placeMatch = !place || item.place === place;
-    //   const startDateMatch =
-    //     !startDate || moment(item.startDate).isSameOrAfter(startDate);
-    //   const endDateMatch =
-    //     !endDate || moment(item.startDate).isSameOrBefore(endDate);
-
-    //   return (
-    //     categoryMatch &&
-    //     locationMatch &&
-    //     placeMatch &&
-    //     startDateMatch &&
-    //     endDateMatch
-    //   );
-    // });
-  
-    // setFilteredData(filtered);
-    let a = filterEvents(data, category, location, place, startDate, endDate)
-    setFilteredData(a);
-    
-  }, [data, category, location, place, startDate, endDate]);
-
+    const filtered = filterEvents(data, category, location.address, location.name, startDate, endDate);
+    setFilteredData(filtered);
+  }, [data, category, location, startDate, endDate]);
 
   const goToDetails = (id) => {
     navigate(`/eventDetails/${id}`);
