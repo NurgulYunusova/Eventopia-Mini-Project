@@ -1,33 +1,27 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import {
+  setCategory,
+  setLocationAddress,
+  setLocationName,
+  setStartDate,
+  setEndDate,
+} from "../slicers/filterSlice";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import "../filter/filter.scss";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setCategory,
-  setLocation,
-  setPlace,
-  setStartDate,
-  setEndDate,
-} from "../slicers/filterSlice";
 
 function Filter() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.data);
-
-  // location place startdate enddate
-  const { category, location, place, startDate, endDate } = useSelector(
+  const { category, location, startDate, endDate } = useSelector(
     (state) => state.filter
   );
-
   const [categories, setCategories] = useState([]);
   const [locations, setLocations] = useState([]);
-  
 
   useEffect(() => {
     axios.get("http://localhost:3001/api/categories").then((res) => {
@@ -44,107 +38,109 @@ function Filter() {
   };
 
   const handleChangeLocation = (event) => {
-    dispatch(setLocation(event.target.value));
+    const { name, value } = event.target;
+    if (name === "address") {
+      dispatch(setLocationAddress(value));
+    } else if (name === "name") {
+      dispatch(setLocationName(value));
+    }
   };
 
-  const handleChangePlace = (event) => {
-    dispatch(setPlace(event.target.value));
-  };
-
+console.log(location);
   return (
-    <>
-      <div className="filter-section">
-        <div className="filter-section-left">
-          <h1>All Events</h1>
+    <div className="filter-section">
+      <div className="filter-section-left">
+        <h1>All Events</h1>
+      </div>
+      <div className="filter-section-right">
+        <div className="box-section">
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl className="formcontrol">
+              <InputLabel className="inp" id="category-label">
+                Category
+              </InputLabel>
+              <Select
+                labelId="category-label"
+                id="category-select"
+                value={category}
+                label="Category"
+                onChange={handleChangeCategory}
+              >
+                {categories &&
+                  categories.map((q, key) => (
+                    <MenuItem value={q._id} key={key}>
+                      {q.name}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl className="formcontrol">
+              <InputLabel className="inp" id="location-address-label">
+                Location
+              </InputLabel>
+              <Select
+                labelId="location-address-label"
+                id="location-address-select"
+                value={location.address}
+                label="Location"
+                onChange={handleChangeLocation}
+                name="address"
+              >
+                {locations &&
+                  locations.map((q, key) => (
+                    <MenuItem value={q.address} key={key}>
+                      {q.address}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl className="formcontrol">
+              <InputLabel className="inp" id="location-name-label">
+                Place
+              </InputLabel>
+              <Select
+                labelId="location-name-label"
+                id="location-name-select"
+                value={location.name}
+                label="Place"
+                onChange={handleChangeLocation}
+                name="name"
+              >
+                {locations &&
+                  locations.map((q, key) => (
+                    <MenuItem value={q.name} key={key}>
+                      {q.name}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+          </Box>
         </div>
-        <div className="filter-section-right">
-          <div className="box-section">
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl className="formcontrol">
-                <InputLabel className="inp" id="demo-simple-select-label">
-                  Category
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={category}
-                  label="Category"
-                  onChange={handleChangeCategory}
-                >
-                  {categories &&
-                    categories.map((q, key) => (
-                      <MenuItem value={q._id} key={key}>
-                        {q.name}
-                      </MenuItem>
-                    ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl className="formcontrol">
-                <InputLabel className="inp" id="demo-simple-select-label">
-                  Location
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={location}
-                  label="Location"
-                  onChange={handleChangeLocation}
-                >
-                  {locations &&
-                    locations.map((q, key) => (
-                      <MenuItem value={q._id} key={key}>
-                        {q.address}
-                      </MenuItem>
-                    ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl className="formcontrol">
-                <InputLabel className="inp" id="demo-simple-select-label">
-                  Place
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={place}
-                  label="Place"
-                  onChange={handleChangePlace}
-                >
-                  {locations &&
-                    locations.map((q, key) => (
-                      <MenuItem value={q._id} key={key}>
-                        {q.name}
-                      </MenuItem>
-                    ))}
-                </Select>
-              </FormControl>
-            </Box>
-          </div>
 
-          <div className="date-section">
-            <div className="start-date-section">
-              <p>Start Date</p>
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => dispatch(setStartDate(e.target.value))}
-              />
-            </div>
-            <div className="end-date-section">
-              <p>End Date</p>
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => dispatch(setEndDate(e.target.value))}
-              />
-            </div>
+        <div className="date-section">
+          <div className="start-date-section">
+            <p>Start Date</p>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => dispatch(setStartDate(e.target.value))}
+            />
+          </div>
+          <div className="end-date-section">
+            <p>End Date</p>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => dispatch(setEndDate(e.target.value))}
+            />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

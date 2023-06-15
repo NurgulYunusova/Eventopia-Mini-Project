@@ -1,11 +1,11 @@
-// filterSlice.js
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   category: "",
-  location: "",
-  place: "",
+  location: {
+    address: "",
+    name: "",
+  },
   startDate: "",
   endDate: "",
 };
@@ -17,11 +17,11 @@ const filterSlice = createSlice({
     setCategory: (state, action) => {
       state.category = action.payload;
     },
-    setLocation: (state, action) => {
-      state.location = action.payload;
+    setLocationAddress: (state, action) => {
+      state.location.address = action.payload;
     },
-    setPlace: (state, action) => {
-      state.place = action.payload;
+    setLocationName: (state, action) => {
+      state.location.name = action.payload;
     },
     setStartDate: (state, action) => {
       state.startDate = action.payload;
@@ -34,8 +34,8 @@ const filterSlice = createSlice({
 
 export const {
   setCategory,
-  setLocation,
-  setPlace,
+  setLocationAddress,
+  setLocationName,
   setStartDate,
   setEndDate,
 } = filterSlice.actions;
