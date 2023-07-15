@@ -17,7 +17,12 @@ require('dotenv').config();
 db.connect();
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: *,
+    methods: ["POST", "GET"],
+    credentials: true
+));
 app.use(fileUpload());
 app.use(express.json());
 
