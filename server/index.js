@@ -19,7 +19,7 @@ db.connect();
 const app = express();
 app.use(cors(
   {
-    origin: ["https://eventopia-ticketing-website.vercel.app"],
+    origin: *,
     methods: ["POST", "GET"],
     credentials: true
 ));
