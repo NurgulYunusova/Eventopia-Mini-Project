@@ -17,17 +17,7 @@ require('dotenv').config();
 db.connect();
 
 const app = express();
-app.use(cors(
-  {
-    origin: ["https://eventopia-ticketing-website.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-));
-
-app.get("/", (req, res) => {
-  res.send("Hello!");
-});
-
+app.use(cors());
 app.use(fileUpload());
 app.use(express.json());
 
