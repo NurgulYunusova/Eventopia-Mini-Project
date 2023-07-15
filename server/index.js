@@ -23,6 +23,11 @@ app.use(cors(
     methods: ["POST", "GET"],
     credentials: true
 ));
+
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
+
 app.use(fileUpload());
 app.use(express.json());
 
